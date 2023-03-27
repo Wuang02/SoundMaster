@@ -1,4 +1,4 @@
-package com.soft.audiomaster;
+package com.soft.audiomaster.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.soft.audiomaster.DBHelper;
 import com.soft.audiomaster.databinding.ActivitySignupBinding;
 
 public class SignupActivity extends AppCompatActivity {
@@ -39,7 +40,7 @@ public class SignupActivity extends AppCompatActivity {
                                 Boolean insert = dbHelper.insertData(email,username,address,phone,password);
                                 if (insert == true){
                                     Toast.makeText(SignupActivity.this, "Signup Successfully!", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                                     startActivity(intent);
                                 }else {
                                     Toast.makeText(SignupActivity.this, "Signup Failed!", Toast.LENGTH_SHORT).show();

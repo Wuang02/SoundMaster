@@ -1,4 +1,4 @@
-package com.soft.audiomaster;
+package com.soft.audiomaster.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.soft.audiomaster.DBHelper;
 import com.soft.audiomaster.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {
@@ -31,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
                     Boolean checkCredentials = dbHelper.checkEmailPassword(email,password);
                     if (checkCredentials == true){
                         Toast.makeText(LoginActivity.this, "Login Successfully!", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                     }else{
                         Toast.makeText(LoginActivity.this, "Invalid Credentials!", Toast.LENGTH_SHORT).show();
@@ -42,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         binding.signupRedirectTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this,SignupActivity.class);
+                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
                 startActivity(intent);
             }
         });
